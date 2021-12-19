@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2? family= Nunito:wght@200 & display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: black;
+  user-select: none; /*Empeche l'utilisateur de sélectionner du texte*/
+  color: #fff;
+  font-family : 'Nunito', sans-serif ;
+  font-size: 40px;
+  display: flex;
+  height: 100vh ; /*100% hauteur de la fenêtre*/
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  overflow: hidden; /*Pas de dépassement*/
+
+} 
+  .container {
+  background-color: black;
+  width: 90vw;
+  display:flex; /*Axe horizontal et vertical (Par défaut de gauche à droite) */
+}
+
+.panel {
+  position: relative; /*Le parent a la position relative  */
+  height: 80vh;
+  background-position: center;
+  background-size: cover    ; /*L'image couvre entièrement dans le découpé, quite à être rogné*/
+  background-repeat: no-repeat;/*L'image ne va pas se répéter--> Force l'image à se contenir dans son panel sans casser le ratio*/
+  flex: 0.5; /*meme encadrement pour toutes les photos*/
+  margin: 10px;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: flex 700ms ease-in-out;
+  
+}
+
+/* .panel:nth-of-type(1){ /*Premier panel --> Déplacé si on le veut par rapport aux autres panel idntique*/
+  /* top: -50px;
+  left: 30px;
+}  * */
+
+.panel h3 {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  font-size: 50px;
+  margin: 0 ;
+  opacity: 0;
+}
+
+.panel.active{  
+  flex: 5;
+}
+
+.panel.active h3{
+  opacity: 1;
+  transition: opacity 0.3s ease-in-out 0.7s;
+}
+@media screen and (max-widht: 480px) {  /*en dessous de 480 px --> 2 éléments non visible : 4 et5*/
+  .container {
+    width: 100vw;
+  }
+.panel:nth-of-type(4),
+.panel:nth-of-type(5){
+display: none;
+  }
+}
+   
+
+
+
+
